@@ -44,7 +44,7 @@ OnReadyCheck:
 	initnpctimer;
 	.Team1_Score = $bg_flavius_td[0];
 	.Team2_Score = $bg_flavius_td[0];
-	bg_updatescore "ebg_td", .Team1_Score, .Team2_Score;
+	bg_updatescore("ebg_td", .Team1_Score, .Team2_Score);
 	sleep 2000;
 	bg_team_reveal($@ebg_td_BG_id1);
 	bg_team_reveal($@ebg_td_BG_id2);
@@ -105,7 +105,7 @@ OnMatchEnd:
 	.Team2_Score = $bg_flavius_td[0];
 	
 	sleep 5000;
-	bg_updatescore "ebg_td", $bg_flavius_td[0], $bg_flavius_td[0];
+	bg_updatescore("ebg_td", $bg_flavius_td[0], $bg_flavius_td[0]);
 	
 	callfunc("F_EndeBG", "ebg_td", 2);
 	end;
@@ -128,28 +128,26 @@ ebg_td,319,231,1	duplicate(Flag#bat)	Alpha Base#td_2	1_FLAG_LION
 ebg_td,304,218,1	duplicate(Flag#bat)	Alpha Base#td_3	1_FLAG_LION
 ebg_td,319,218,1	duplicate(Flag#bat)	Alpha Base#td_4	1_FLAG_LION
 ebg_td,304,231,1	duplicate(Flag#bat)	Alpha Base#td_5	1_FLAG_LION
-ebg_td,304,231,1	duplicate(Flag#bat)	Alpha Base#td_6	1_FLAG_LION
-ebg_td,335,142,1	duplicate(Flag#bat)	Alpha Base#td_7	1_FLAG_LION
-ebg_td,335,157,1	duplicate(Flag#bat)	Alpha Base#td_8	1_FLAG_LION
-ebg_td,390,16,1	duplicate(Flag#bat)	Alpha Base#td_9	1_FLAG_LION
-ebg_td,292,163,1	duplicate(Flag#bat)	Alpha Base#td_10	1_FLAG_LION
-ebg_td,292,136,1	duplicate(Flag#bat)	Alpha Base#td_11	1_FLAG_LION
-ebg_td,241,185,1	duplicate(Flag#bat)	Alpha Base#td_12	1_FLAG_LION
-ebg_td,247,179,1	duplicate(Flag#bat)	Alpha Base#td_13	1_FLAG_LION
+ebg_td,335,142,1	duplicate(Flag#bat)	Alpha Base#td_6	1_FLAG_LION
+ebg_td,335,157,1	duplicate(Flag#bat)	Alpha Base#td_7	1_FLAG_LION
+ebg_td,390,16,1	duplicate(Flag#bat)	Alpha Base#td_8	1_FLAG_LION
+ebg_td,292,163,1	duplicate(Flag#bat)	Alpha Base#td_9	1_FLAG_LION
+ebg_td,292,136,1	duplicate(Flag#bat)	Alpha Base#td_10	1_FLAG_LION
+ebg_td,241,185,1	duplicate(Flag#bat)	Alpha Base#td_11	1_FLAG_LION
+ebg_td,247,179,1	duplicate(Flag#bat)	Alpha Base#td_12	1_FLAG_LION
 
 ebg_td,96,81,1	duplicate(Flag#bat)	Omega Base#td_1	1_FLAG_EAGLE
 ebg_td,96,68,1	duplicate(Flag#bat)	Omega Base#td_2	1_FLAG_EAGLE
 ebg_td,79,81,1	duplicate(Flag#bat)	Omega Base#td_3	1_FLAG_EAGLE
 ebg_td,79,68,1	duplicate(Flag#bat)	Omega Base#td_4	1_FLAG_EAGLE
 ebg_td,96,81,1	duplicate(Flag#bat)	Omega Base#td_5	1_FLAG_EAGLE
-ebg_td,96,81,1	duplicate(Flag#bat)	Omega Base#td_6	1_FLAG_EAGLE
-ebg_td,59,164,1	duplicate(Flag#bat)	Omega Base#td_7	1_FLAG_EAGLE
-ebg_td,59,137,1	duplicate(Flag#bat)	Omega Base#td_8	1_FLAG_EAGLE
-ebg_td,10,296,1	duplicate(Flag#bat)	Omega Base#td_9	1_FLAG_EAGLE
-ebg_td,110,162,1	duplicate(Flag#bat)	Omega Base#td_10	1_FLAG_EAGLE
-ebg_td,110,137,1	duplicate(Flag#bat)	Omega Base#td_11	1_FLAG_EAGLE
-ebg_td,152,120,1	duplicate(Flag#bat)	Omega Base#td_12	1_FLAG_EAGLE
-ebg_td,158,114,1	duplicate(Flag#bat)	Omega Base#td_13	1_FLAG_EAGLE
+ebg_td,59,164,1	duplicate(Flag#bat)	Omega Base#td_6	1_FLAG_EAGLE
+ebg_td,59,137,1	duplicate(Flag#bat)	Omega Base#td_7	1_FLAG_EAGLE
+ebg_td,10,296,1	duplicate(Flag#bat)	Omega Base#td_8	1_FLAG_EAGLE
+ebg_td,110,162,1	duplicate(Flag#bat)	Omega Base#td_9	1_FLAG_EAGLE
+ebg_td,110,137,1	duplicate(Flag#bat)	Omega Base#td_10	1_FLAG_EAGLE
+ebg_td,152,120,1	duplicate(Flag#bat)	Omega Base#td_11	1_FLAG_EAGLE
+ebg_td,158,114,1	duplicate(Flag#bat)	Omega Base#td_12	1_FLAG_EAGLE
 
 // MapFlags
 // *********************************************************************
