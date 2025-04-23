@@ -1909,7 +1909,7 @@ void clear_bg_guild_data(struct map_session_data *sd, struct battleground_data *
 	}
 	
 	// Update Emblem
-	clif->guild_emblem_area(&sd->bl);
+	clif->guild_emblem_id_area(&sd->bl);
 	
 	if (bgd == NULL)
 		return;
@@ -2790,7 +2790,7 @@ void area_flooritem(int16 m, int16 x, int16 y, int itemid, int amount)
 
 	range = (int)sqrt(amount) + rnd()%2;
 	for (i = 0; i < amount; i++) {
-		map->search_freecell(NULL, m, &x, &y, range, range, 1);
+		map->search_free_cell(NULL, m, &x, &y, range, range, 1);
 		map->addflooritem(NULL, &item_tmp, 1, m, x, y, 0, 0, 0, 0, false); //ToDo: Greed Check
 	}
 }
@@ -3281,13 +3281,13 @@ int bg_e_team_join(int bg_id, struct map_session_data *sd, int guild_id)
 		clif->guild_memberlist(pl_sd);
 		clif->guild_positioninfolist(pl_sd);
 		if (pl_sd != sd)
-			clif->hpmeter_single(sd->fd, pl_sd->bl.id, pl_sd->battle_status.hp, pl_sd->battle_status.max_hp);
+			clif->hpmeter_single(sd->fd, pl_sd->bl.id, pl_sd->battle_status.hp, pl_sd->battle_status.max_hp, pl_sd->battle_status.sp, pl_sd->battle_status.max_sp);
 	}
 
 	clif->bg_hp(sd);
 	clif->bg_xy(sd);
 	if (guild_id >= 0)
-		clif->guild_emblem_area(&sd->bl);
+		clif->guild_emblem_id_area(&sd->bl);
 	return 1;
 }
 
@@ -3630,7 +3630,7 @@ int eBG_Guildadd(struct map_session_data *sd, struct guild* g) {
 			guild->member_added(g->guild_id,m.account_id,m.char_id, 0);
 			g->save_flag |= 0x0100;
 			g->member[i].position = (data->leader?0:1);
-			guild->recv_info(g);
+			guild->recv_info(g, NULL);
 
 			g->save_flag |= 0x0002;
 			if (g->save_flag&0x8000)
@@ -3881,7 +3881,7 @@ void send_bg_emblem_area(struct map_session_data **sd_) {
 	if (data && data->eBG) {	
 		eShowDebug("SDEmblem:%d,bl:%d\n",sd->guild->emblem_id,status->get_emblem_id(bl));
 		eShowDebug("SDGuild:%d,bl:%d\n",sd->guild->guild_id,status->get_guild_id(bl));
-		clif->guild_emblem_area(bl);
+		clif->guild_emblem_id_area(bl);
 		hookStop();
 	}
 }
@@ -6279,7 +6279,7 @@ HPExport void plugin_init(void)
 	addHookPre(clif, useSkillToIdReal, unit_guild_skill);
 	addHookPre(skill, castend_nodamage_id, skill_castend_guild);
 	addHookPre(clif, guild_basicinfo, send_bg_basicinfo);
-	addHookPre(clif, pGuildRequestEmblem, send_bg_emblem_single_);
+	addHookPre(clif, pGuildRequestEmblem1, send_bg_emblem_single_);
 	addHookPre(status, damage, mob_immunity);
 	addHookPre(npc, reload, npc_reload_pre);
 	addHookPre(npc, parse_unknown_mapflag, parse_mapflags);
